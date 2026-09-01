@@ -1,0 +1,11 @@
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\bin\Debug\net10.0\TaskService.deps.json
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\bin\Debug\net10.0\TaskService.dll
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\bin\Debug\net10.0\TaskService.pdb
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\obj\Debug\net10.0\TaskService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\obj\Debug\net10.0\TaskService.AssemblyInfoInputs.cache
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\obj\Debug\net10.0\TaskService.AssemblyInfo.cs
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\obj\Debug\net10.0\TaskService.csproj.CoreCompileInputs.cache
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\obj\Debug\net10.0\TaskService.dll
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\obj\Debug\net10.0\refint\TaskService.dll
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\obj\Debug\net10.0\TaskService.pdb
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService\obj\Debug\net10.0\ref\TaskService.dll

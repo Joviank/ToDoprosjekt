@@ -1,0 +1,38 @@
+1. Lag en ny mappe
+
+2. Opprett en solution
+(En solution samler flere prosjekter)
+	Kjør: dotnet new sln -n CalculatorTDD
+
+3. Opprette selve applikasjonen (Class Library)
+	Kjør: dotnet new classlib -n Calculator
+
+4. Opprett testprosjekt
+	Kjør: dotnet new xunit -n Calculator.Tests
+
+5. Legge til prosjekter i solution:
+	Kjør: dotnet sln add Calculator
+	Kjør: dotnet sln add Calculator.Tests
+
+6. Koble testprosjekt til appen:
+	dotnet add Calculator.Tests reference Calculator
+
+7. Slett default Class1.cs og lag Calculator.cs
+
+Til slutt skal filstruktur skal se slik ut:
+Navnet på mappen
+│
+├─ CalculatorTDD.sln
+│
+├─ Calculator
+│   ├─ Calculator.cs
+│   └─ Calculator.csproj
+│
+└─ Calculator.Tests
+    ├─ CalculatorTests.cs
+    └─ Calculator.Tests.csproj
+
+Så begynner vi å lage tester og kode
+
+8. Kjør testene
+	Kjør: dotnet test
