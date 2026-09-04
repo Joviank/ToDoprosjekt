@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskService", "TaskService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskService.tests", "TaskService.tests\TaskService.tests.csproj", "{EC3F5F06-D1BC-47E0-9BBC-FBA1B4048063}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskService.Api", "TaskService.Api\TaskService.Api.csproj", "{E50ED03D-D6B3-48A1-934A-85E841AF445E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{EC3F5F06-D1BC-47E0-9BBC-FBA1B4048063}.Release|x64.Build.0 = Release|Any CPU
 		{EC3F5F06-D1BC-47E0-9BBC-FBA1B4048063}.Release|x86.ActiveCfg = Release|Any CPU
 		{EC3F5F06-D1BC-47E0-9BBC-FBA1B4048063}.Release|x86.Build.0 = Release|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Debug|x64.Build.0 = Debug|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Debug|x86.Build.0 = Debug|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Release|x64.ActiveCfg = Release|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Release|x64.Build.0 = Release|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Release|x86.ActiveCfg = Release|Any CPU
+		{E50ED03D-D6B3-48A1-934A-85E841AF445E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

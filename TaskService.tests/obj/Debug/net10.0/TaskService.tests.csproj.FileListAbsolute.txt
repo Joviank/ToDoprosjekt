@@ -98,3 +98,4 @@ C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-pr
 C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.tests\obj\Debug\net10.0\TaskService.tests.pdb
 C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.tests\obj\Debug\net10.0\TaskService.tests.genruntimeconfig.cache
 C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.tests\obj\Debug\net10.0\ref\TaskService.tests.dll
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.tests\obj\Debug\net10.0\TaskService.tests.sourcelink.json

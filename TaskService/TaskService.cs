@@ -27,4 +27,15 @@ public class TaskService
         }
         task.IsCompleted = true;
     }
+
+        public void DeleteTask(int id)
+    {
+        var task = tasks.FirstOrDefault(t => t.Id == id);
+
+        if(task == null)
+        {
+            throw new KeyNotFoundException("Du vil ha monarkiet. (Tasken finnes ikke)");
+        }
+        tasks.Remove(task);
+    }
 }

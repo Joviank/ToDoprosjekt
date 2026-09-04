@@ -1,0 +1,34 @@
+1. Lag webapi
+dotnet new webapi -n TaskService.Api
+
+2. Legg til APiet i solution
+dotnet sln add TaskService.Api/TaskService.Api.csproj
+
+3. Koble APIet med TaskService
+dotnet add TaskService.Api reference TaskService/TaskService.csproj
+
+4. Lag Controller mappe og fil f.eks: TasksController.cs
+
+TaskServiceSolution
+│
+├── TaskService                
+│   ├── TaskService.cs
+│   ├── TaskItem.cs
+│   └── TaskService.csproj
+│
+├── TaskService.Tests         
+│   ├── TaskServiceTests.cs
+│   └── TaskService.Tests.csproj
+│
+├── TaskService.Api 
+│   ├── Controllers
+│   │   └── TasksController.cs
+│   │
+│   ├── Program.cs
+│   ├── appsettings.json
+│   └── TaskService.Api.csproj
+│
+└── TaskServiceSolution.sln
+
+Hvis swagger ikke funker:
+dotnet add TaskService.Api package Swashbuckle.AspNetCore

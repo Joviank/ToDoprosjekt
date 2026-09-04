@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "92ZB9LWSxco=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jovia\\Documents\\Jobb\\JobLoop\\Backend\\Undervisning\\September2026\\ToDo-prosjekt\\TaskService.Api\\TaskService.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jovia\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.1\\microsoft.aspnetcore.openapi.10.0.1.nupkg.sha512",
+    "C:\\Users\\Jovia\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
+    "C:\\Users\\Jovia\\.nuget\\packages\\scalar.aspnetcore\\2.17.2\\scalar.aspnetcore.2.17.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "C:\\Users\\Jovia\\Documents\\Jobb\\JobLoop\\Backend\\Undervisning\\September2026\\ToDo-prosjekt\\TaskService.Api\\TaskService.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Jovia\\Documents\\Jobb\\JobLoop\\Backend\\Undervisning\\September2026\\ToDo-prosjekt\\TaskService.Api\\TaskService.Api.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}
