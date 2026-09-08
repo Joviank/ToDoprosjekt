@@ -1,0 +1,18 @@
+1. Lage YAML-fil i root mappen av prosjektet
+
+TaskServiceSolution
+│
+├── TaskService
+├── TaskService.Api
+├── TaskService.Tests
+└── docker-compose.yaml (NY)
+
+2. Legg til ulike services i filen
+
+f.eks api, db, pgadmin etc.
+
+Husk å starte opp docker desktop for å kunne gjøre følgende:
+3. Kjør alt sammen i root mappen
+docker compose up
+
+4. Test APIet og database UI

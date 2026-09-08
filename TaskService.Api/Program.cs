@@ -20,4 +20,5 @@ if (app.Environment.IsDevelopment())
 
 app.MapControllers();
 app.MapHealthChecks("Health");
+app.Urls.Add("http://0.0.0.0:80");
 app.Run();

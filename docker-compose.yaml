@@ -1,0 +1,45 @@
+services:
+  api:
+    build:
+      # Den mappen du står i
+      context: .
+      # Finner du dockerfilen slik
+      dockerfile: TaskService.Api/Dockerfile
+
+    ports:
+      - "8080:80"
+
+    # Sørg for at databasen starter før API-et
+    depends_on:
+      - kh
+
+    # Finn databasen kalt kh. Dette er slik API-et kan koble seg til kh
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString_Default=Host=kh;Port=5432;Database=tasks;Username=postgres;Password=postgres
+
+  kh:
+    # Henter ferdig database image fra Docker Hub
+    image: postgres:16
+
+    environment:
+      # Navnet på databasen som opprettes automatisk
+      POSTGRES_DB: tasks
+
+      # Tilgang til databasen (hentet fra Docker Hub)
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+  pgadmin:
+    # Henter ferdig database image fra Docker Hub
+    image: dpage/pgadmin4
+
+    ports:
+      - "5050:80"
+
+    environment:
+      # Setter tilgang til pgadmin
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
