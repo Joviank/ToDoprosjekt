@@ -1,0 +1,76 @@
+Dette er den endelige filstrukturen vi skal ende opp med på slutten av undervisningen. 
+Bruk dette som en guide for arkitekturen:
+
+TaskServiceSolution
+│
+├── TaskService
+│   ├── TaskService.cs   <- (Endrer)
+│   ├── TaskItem.cs
+│   ├── TaskService.csproj
+│   └── Repositories/    <- (Ny Mappe)
+│   	 └── ITaskRepository.cs (Ny)
+│
+├── TaskService.Api
+│   ├── Controllers/	
+│   │   └── TasksController.cs  <- (Endrer)
+│   │
+│   ├── Data/		       <- (Ny mappe)
+│   │   └── TaskDbContext.cs (Ny)
+│   ├── DTO/		       <- (Ny mappe)
+│   │   └── CreateTaskRequest.cs (Ny)
+│   │
+│   ├── Repositories/	<- (Ny mappe)
+│   │   └── EfTaskRepository.cs (Ny)
+│   │
+│   ├── Program.cs        <- (Endrer)
+│   ├── appsettings.json  <- (Endrer)
+│   ├── TaskService.Api.csproj
+│   └── Dockerfile
+│
+├── TaskService.Tests
+│   ├── TaskServiceTests.cs
+│   └── TaskService.Tests.csproj
+│
+└── docker-compose.yaml
+
+1. Vi installerer EF core i TaskService.Api mappen. 
+Vi kjører følgende i terminal:
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+
+2. Lag Data mappen først, og lag TaskDbContext
+
+3. Lag ITaskRepository.cs i TaskService
+
+4. Lag EfTaskRepository hvor du flytter database logikken fra TaskService.cs til EfTaskRepository.
+(Tilpass dette til EF core, slik at den snakker riktig med databasen.)
+
+5. Gjør endringer i TaskService hvor den kun byr seg om oppførselen til databasen
+
+4. Vi lager DTO mappen (Data Transfer Object) og CreateTaskRequest.cs
+
+5. Vi må endre TasksController, beholder sammen logikk men bare skrevet for å tilpasse EF
+(Knytt AddTask til DTO CreateTaskRequest.)
+
+6. Endre Program.cs fra å bruke AddSingleton -> AddScoped, og legge til en Builder for DbContext
+
+7. Legg til ConnectionStrings i appsettings.json.
+(Vi bruker host=localhost for migration ellers får vi feil. 
+Dette går fint ettersom docker vil overskrive host=localhost til host=db)
+
+---------------------------------------------------------------------
+
+Når alle disse stegene er fullført kan vi legge til Migration for å få en databasehistorikk. 
+(Migration = Git commits for database.)
+
+1. Lag første migration. Stå i root-mappen av prosjektet og kjør dette i terminal:
+dotnet ef migrations add InitialCreate --project TaskService.Api
+
+2. Start opp docker ellers vil ikke steg 3. funke:
+docker compose up
+
+3. Kjør migration i terminal:
+dotnet ef database update --project TaskService.Api
+
+4. Test ut apiet, database og pgadmin
