@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskService;
+using TaskService.Api.DTO;
 
 namespace TaskService.Api.Controllers;
 
@@ -21,15 +22,21 @@ public class TaskController : ControllerBase
     }
 
     [HttpPost]
-    public TaskItem AddTask(string title)
+    public TaskItem AddTask([FromBody] CreateTaskRequest request)
     {
-        return taskManager.AddTask(title);
+        return taskManager.AddTask(request.Title);
     }
 
     [HttpDelete("{id}")]
     public IActionResult DeleteTask(int id)
     {
         taskManager.DeleteTask(id);
+        return NoContent();
+    }
+    [HttpPatch("{id}/complete")]
+    public IActionResult CompleteTask(int id)
+    {
+        taskManager.CompleteTask(id);
         return NoContent();
     }
 }

@@ -1,41 +1,42 @@
-﻿namespace TaskService;
+﻿using TaskService.Repositories;
+namespace TaskService;
 
 public class TaskService
 {
-    private readonly List<TaskItem> tasks = new();
-    private int nextId = 0;
+    private readonly ITaskRepository _repo;
+
+    public TaskService(ITaskRepository repo)
+    {
+        _repo = repo;
+    }
 
     public TaskItem AddTask(string title)
     {
-        var task = new TaskItem(nextId++, title);
-        tasks.Add (task);
-        return task;
+        if (string.IsNullOrWhiteSpace(title))
+        {
+            throw new ArgumentException("Title cannot be empty");
+        }
+
+        if (title.Length > 100)
+        {
+            throw new ArgumentException("Title cannot be longer than 100 characetrs.");
+        }
+        
+        return _repo.Add(title);
     }
 
     public List<TaskItem> GetTasks()
     {
-        return tasks.ToList();
+        return _repo.GetAll();
     }
 
     public void CompleteTask(int id)
     {
-        var task = tasks.FirstOrDefault(t => t.Id == id);
-
-        if(task == null)
-        {
-            throw new KeyNotFoundException("Du vil ha monarkiet. (Tasken finnes ikke)");
-        }
-        task.IsCompleted = true;
+        _repo.Complete(id);
     }
 
-        public void DeleteTask(int id)
+    public void DeleteTask(int id)
     {
-        var task = tasks.FirstOrDefault(t => t.Id == id);
-
-        if(task == null)
-        {
-            throw new KeyNotFoundException("Du vil ha monarkiet. (Tasken finnes ikke)");
-        }
-        tasks.Remove(task);
+        _repo.Delete(id);
     }
 }

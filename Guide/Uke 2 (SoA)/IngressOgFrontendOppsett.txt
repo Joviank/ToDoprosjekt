@@ -1,0 +1,84 @@
+Filstruktur guide:
+
+ToDo-Prosjekt
+│
+├── TaskService
+│   ├── TaskService.cs
+│   ├── TaskItem.cs
+│   ├── TaskService.csproj
+│   │
+│   └── Repositories/
+│       └── ITaskRepository.cs
+│
+├── TaskService.Api
+│   │
+│   ├── Controllers/
+│   │   ├── TasksController.cs
+│   │   └── HomeController.cs (Ny)
+│   │
+│   ├── Data/
+│   │   └── TaskDbContext.cs
+│   │
+│   ├── DTO/
+│   │   └── CreateTaskRequest.cs
+│   │
+│   ├── Repositories/
+│   │   └── EfTaskRepository.cs
+│   │
+│   ├── Views/ (ALT NYTT)
+│   │   ├── Home/
+│   │   │   └── Index.cshtml
+│   │   │
+│   │   ├── Shared/
+│   │   │   └── _Layout.cshtml
+│   │   │
+│   │   └── _ViewStart.cshtml (Potensielt valgfritt)
+│   │
+│   │
+│   ├── wwwroot/ (ALT NYTT)
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   │
+│   │   └── js/
+│   │       └── app.js
+│   │
+│   ├── Program.cs (Endret)
+│   ├── appsettings.json
+│   ├── TaskService.Api.csproj
+│   └── Dockerfile
+│
+├── TaskService.Tests
+│   ├── TaskServiceTests.cs
+│   └── TaskService.Tests.csproj
+│
+├── traefik/
+│   └── traefik.yml (NY)
+│
+├── docker-compose.yaml (Endret)
+│
+└── TaskServiceSolution.sln
+
+-------------------------------------------------------------------------
+
+Hvordan sette dette opp:
+
+1. Lag HomeController.cs for Razor-view
+
+2. Lag alle filene i Views. Dette blir vår "HTML" del.
+
+3. Lag wwwroot, legg til styling som du ønsker og JavaScript. JavaScript er viktig for å kunne la frontend kommunisere med backend.
+
+4. Lag et traefik.yml fil eller valgfritt ingress Controller.
+
+5. Legg til ingress Controller i docker compose service og gi api en label.
+
+6. Legg til volumes i docker-compose.yaml
+
+7. Legg til AddControllersWithViews for razor page, legg til static og Routing og endre mapControllerRoute
+
+8. Docker compose up --build (Husk å start opp docker desktop)
+Hvis databasen ikke kjører: dotnet ef database update
+
+9. Test ut apiet, frontend, swagger, pgadmin osv.
+
+
