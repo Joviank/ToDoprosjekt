@@ -1,0 +1,70 @@
+1. Installer Scalar
+
+kjør:
+dotnet add package Scalar.AspNetCore
+
+2. legg til using øverst i Program.cs:
+
+using Scalar.AspNetCore;
+
+3. Legg til OpenApi i program.cs:
+
+builder.Services.AddOpenApi();
+Hvis den allerede finnes, trenger du ikke legge den til på nytt.
+
+4. legg til scalar i program.cs
+
+Finn:
+
+var app = builder.Build();
+
+Legg til:
+
+if (app.Environment.IsDevelopment())
+{
+app.MapOpenApi();
+app.MapScalarApiReference();
+}
+
+Hvis du allerede har en if-blokk for Development, kan du legge
+linjene inn i den eksisterende blokken.
+-------------------------------------------------------------------
+Eksempel på program.cs: 
+
+Et enkelt prosjekt kan se slik ut:
+
+using Scalar.AspNetCore;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenApi();
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+app.MapOpenApi();
+app.MapScalarApiReference();
+}
+
+app.MapControllers();
+
+app.Run();
+-------------------------------------------------------------------
+1. Start prosjektet:
+
+Kjør:
+dotnet run
+
+Terminalen viser hvilken localhost-port prosjektet bruker. For eksempel:
+http://localhost:5000
+
+2. Åpne scalar:
+
+Sleng på /scalar:
+
+f.eks:
+http://localhost:5000/scalar
+
+Bruk portnummeret som står i din egen terminal.
