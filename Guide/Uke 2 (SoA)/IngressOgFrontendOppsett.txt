@@ -68,7 +68,7 @@ Hvordan sette dette opp:
 
 3. Lag wwwroot, legg til styling som du ønsker og JavaScript. JavaScript er viktig for å kunne la frontend kommunisere med backend.
 
-4. Lag et traefik.yml fil eller valgfritt ingress Controller.
+4. Lag en traefik.yml fil eller valgfritt ingress Controller.
 
 5. Legg til ingress Controller i docker compose service og gi api en label.
 

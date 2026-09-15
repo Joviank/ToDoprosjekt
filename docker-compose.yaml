@@ -1,4 +1,14 @@
 services:
+  traefik:
+    image: traefik:v3
+
+    ports:
+      - "80:80"
+      - "8081:8080"
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
   api:
     build:
       # Den mappen du står i
@@ -16,7 +26,13 @@ services:
     # Finn databasen kalt kh. Dette er slik API-et kan koble seg til kh
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionString_Default=Host=kh;Port=5432;Database=tasks;Username=postgres;Password=postgres
+      - ConnectionStrings__Default=Host=kh;Port=5432;Database=tasks;Username=postgres;Password=postgres
+
+    # Tenk på labels som beskjeder til traefik
+    labels:
+      - "traefik.enable=true" # Traefik, denne containeren (API) skal du håndtere
+      - "traefik.http.routers.api.rule=host(`api.localhost`)" # Hvis noen går inn på "api.localhost", send requesten til denne API-containeren
+      - "traefik.http.services.api.loadbalancer.server.port=80" # Når traefik sender requesten til API-container, bruk port 80 inne i containeren
 
   kh:
     # Henter ferdig database image fra Docker Hub
@@ -29,9 +45,10 @@ services:
       # Tilgang til databasen (hentet fra Docker Hub)
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
   pgadmin:
     # Henter ferdig database image fra Docker Hub
     image: dpage/pgadmin4
@@ -43,3 +60,6 @@ services:
       # Setter tilgang til pgadmin
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
+
+volumes:
+  postgres_data:

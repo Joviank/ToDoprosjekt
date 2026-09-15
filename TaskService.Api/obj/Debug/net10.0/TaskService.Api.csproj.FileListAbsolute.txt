@@ -124,3 +124,8 @@ C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-pr
 C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\bin\Debug\net10.0\TaskService.Api.staticwebassets.runtime.json
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\obj\Debug\net10.0\TaskService.Api.RazorAssemblyInfo.cache
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\obj\Debug\net10.0\TaskService.Api.RazorAssemblyInfo.cs
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\obj\Debug\net10.0\compressed\oprhaio0lv-{0}-l91fcj86xa-l91fcj86xa.gz
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\obj\Debug\net10.0\compressed\grvwnu51si-{0}-cqm1av458o-cqm1av458o.gz

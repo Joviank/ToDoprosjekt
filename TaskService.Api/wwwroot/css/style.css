@@ -1,0 +1,16 @@
+body {
+  font-family: Arial;
+  margin: 40px;
+}
+
+input {
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+}
+
+li {
+  margin-top: 10px;
+}

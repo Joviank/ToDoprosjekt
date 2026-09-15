@@ -1,0 +1,52 @@
+- Volumes: MÅ være med i docker-compose.yaml (ellers slettes dataene i pgAdmin).
+- Migrate: Koden db.Database.Migrate(); i Program.cs oppdaterer DB automatisk.
+
+Del 1: Sette opp Swagger-lås og Token-lesing:
+TaskService.Api/
+├── Controllers/
+│   └── AuthController.cs (Ny)
+└── Program.cs (Endringer)
+
+1. Installer:
+dotnet add package System.IdentityModel.Tokens.Jwt
+
+2. Lag AuthController.cs: 
+Lag /auth/token som henter header, fjerner "Bearer " og dekoder token med JwtSecurityTokenHandler.
+
+3. Endre Program.cs: 
+Konfigurer AddSwaggerGen med OpenApiSecurityScheme for å få Authorize-knappen.
+
+Test: 
+Kjør docker-compose up --build. 
+Lim inn token i Swagger og sjekk at claims leses ut. Bruk jwt.io for å hente tokens.
+
+---------------------------------------------------------
+Del 2: Isolere data per bruker
+TaskService/
+├── Repositories/ ITaskRepository.cs (Endringer)
+├── TaskItem.cs (Endringer)
+└── TaskService.cs (Endringer)
+TaskService.Api/
+├── Controllers/ TasksController.cs (Endringer)
+└── Repositories/ EfTaskRepository.cs (Endringer) 
+
+1. Oppdater kildekode:
+TaskItem.cs: Legg til public string UserId { get; set; } (husk tom konstruktør for EF core).
+ITaskRepository.cs & TaskService.cs: Oppdater GetAll og Add til å kreve string userId.
+
+2. Oppdater datatilganger:
+EfTaskRepository.cs: Filtrer med .Where(t => t.UserId == userId) og lagre med userId.
+TasksController.cs: Hent token fra header, trekk ut sub-claim (bruker-ID), og send den til TaskService (logikk).
+
+3. Docker compose up --build
+
+4. dotnet ef migrations add "AddUserIdToTask" (Dere kan skrive hva som helst)
+
+Hvis api ikke vil starte:
+docker-compose down
+docker-compose up --build --no-cache
+
+5. Test ut ved å bruke to forskjellige tokens. Legg til ulike task for hver bruker.
+Sjekk pgadmin ved å koble deg til databasen.
+
+

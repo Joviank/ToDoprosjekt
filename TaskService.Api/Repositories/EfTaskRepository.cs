@@ -43,7 +43,7 @@ public class EfTaskRepository : ITaskRepository
             throw new KeyNotFoundException();
         }
 
-        task.IsCompleted = true;
+        task.IsCompleted = !task.IsCompleted;
         _db.SaveChanges();
     }
 }

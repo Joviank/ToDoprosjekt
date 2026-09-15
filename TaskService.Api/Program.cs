@@ -8,7 +8,7 @@ using TaskServiceClass = TaskService.TaskService;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi(); 
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
 builder.Services.AddHealthChecks();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -29,6 +29,11 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
+app.UseStaticFiles();
+app.UseRouting();
+app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllers();
 app.MapHealthChecks("/health");
