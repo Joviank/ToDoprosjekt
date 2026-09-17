@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskService;
 using TaskService.Api.DTO;
+using TaskService.Api.Helpers;
 
 namespace TaskService.Api.Controllers;
 
@@ -9,22 +10,37 @@ namespace TaskService.Api.Controllers;
 public class TaskController : ControllerBase
 {
     private readonly TaskService taskManager;
+    private readonly UserContext userContext;
 
-    public TaskController(TaskService taskService)
+    public TaskController(TaskService taskService, UserContext userContext)
     {
         taskManager = taskService;
+        this.userContext = userContext;
     }
 
     [HttpGet]
-    public IEnumerable<TaskItem> GetTask()
+    public ActionResult <IEnumerable<TaskItem>> GetTask()
     {
-        return taskManager.GetTasks();
+        var userId = userContext.GetUserId();
+        if (string.IsNullOrEmpty(userId))
+        {
+            return Unauthorized("User ID could not be found");
+        }
+
+        var tasks = taskManager.GetTasks(userId);
+        return Ok(tasks);
     }
 
     [HttpPost]
-    public TaskItem AddTask([FromBody] CreateTaskRequest request)
+    public ActionResult<TaskItem> AddTask([FromBody] CreateTaskRequest request)
     {
-        return taskManager.AddTask(request.Title);
+        var userId = userContext.GetUserId();
+        if (string.IsNullOrEmpty(userId))
+        {
+            return Unauthorized("User ID could not be found");
+        }
+        var newTask = taskManager.AddTask(request.Title, userId);
+        return Ok(newTask);
     }
 
     [HttpDelete("{id}")]

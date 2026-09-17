@@ -1,0 +1,81 @@
+TaskService (Class Library)
+│
+├── Models
+│   ├── TaskItem.cs (flyttes hit hvis den ikke allerede ligger her)
+│   └── User.cs (NY)
+│
+└── JwtService.cs (ENDRINGER)
+
+
+TaskService.Api (Web API)
+│
+├── Controllers
+│   └── AuthController.cs (ENDRINGER)
+│
+├── DTO
+│   ├── RegisterRequest.cs (NY)
+│   └── LoginRequest.cs (NY)
+│
+├── Data
+│   └── TaskDbContext.cs (ENDRINGER)
+│
+├── appsettings.json (ENDRINGER)
+│
+└── Security
+    └── HashPasswords.cs (NY)
+
+
+--------------------------------------------------------------------
+Installer i API-et (TaskService.Api)
+dotnet add package BCrypt.Net-Next 
+
+1. Lag DTO-er for login og register
+
+2. I Class Library (TaskService) lag en mappe kalt Models
+   - Flytt TaskItem.cs inn hvis den ikke allerede ligger her
+   - Lag User.cs
+
+3. I User.cs lager du modellen for bruker
+
+4. I Web API (TaskService.Api) gjør endringer i TaskDbContext.cs.
+   Den skal inneholde modellen User som du lagde.
+
+5. I Class Library (TaskService) gjør du endringer i JwtService.cs.
+   Du skal nå kunne opprette tokens når en bruker logger inn.
+
+   Lag metoden:
+
+   CreateToken(...)
+
+6. I Web API (TaskService.Api) lag mappen Security
+   og opprett HashPasswords.cs.
+
+   Her lager vi logikken for:
+
+   - hashing av passord
+   - kontroll av passord ved login
+
+7. I Web API (TaskService.Api) skal du legge til
+   endepunkter i AuthController for:
+
+   - registrering
+   - login
+   - lesing av token
+
+   Dette kommer til å innebære en del logikk i Controlleren,
+   fordi strukturen ikke er ferdig ryddet opp.
+
+   Se gjerne om dere finner en god løsning hvor dere tar hensyn
+   til separation of concerns, slik at mest mulig logikk ligger
+   i Class Library og AuthController kan holdes tynn. 
+
+8. Legg til en JWT secret i appsettings.json.
+
+   Eksempel:
+
+   "Jwt": {
+       "Key": "my-super-secret-development-key-987654321"
+   }
+
+
+--------------------------------------------------------------------

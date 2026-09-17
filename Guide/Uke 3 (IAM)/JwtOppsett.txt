@@ -1,6 +1,3 @@
-- Volumes: MÅ være med i docker-compose.yaml (ellers slettes dataene i pgAdmin).
-- Migrate: Koden db.Database.Migrate(); i Program.cs oppdaterer DB automatisk.
-
 Del 1: Sette opp Swagger-lås og Token-lesing:
 TaskService.Api/
 ├── Controllers/
@@ -25,10 +22,13 @@ Del 2: Isolere data per bruker
 TaskService/
 ├── Repositories/ ITaskRepository.cs (Endringer)
 ├── TaskItem.cs (Endringer)
+├── JwtService.cs (NY)
 └── TaskService.cs (Endringer)
 TaskService.Api/
 ├── Controllers/ TasksController.cs (Endringer)
+├── Helpers/ UserContext.cs (NY)
 └── Repositories/ EfTaskRepository.cs (Endringer) 
+
 
 1. Oppdater kildekode:
 TaskItem.cs: Legg til public string UserId { get; set; } (husk tom konstruktør for EF core).
@@ -49,4 +49,16 @@ docker-compose up --build --no-cache
 5. Test ut ved å bruke to forskjellige tokens. Legg til ulike task for hver bruker.
 Sjekk pgadmin ved å koble deg til databasen.
 
+VALGFRITT
+Hvis du ønsker å holde mer orden
+
+1. Lag en klasse som finner bruker ID
+JwtService.cs: Filtrer søk med .FirstOrDefault(c => c.Type == "sub") 
+hvor C representerer hvilken type Claim du ser etter.
+
+2. Lag UserContext som er ansvarlig for å sende inn tokenet til JwtService.
+
+3. TasksController.cs er nå kun ansvarlig for å sende bruker ID
+
+4. DI i program.cs for jwtService og UserContext
 

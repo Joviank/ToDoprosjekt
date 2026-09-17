@@ -12,14 +12,16 @@ public class EfTaskRepository : ITaskRepository
         _db = db;
     }
 
-    public List<TaskItem> GetAll()
+    public List<TaskItem> GetAll(string userId)
     {
-        return _db.Tasks.ToList();
+        return _db.Tasks
+            .Where(t => t.UserId == userId)
+            .ToList();
     }
 
-    public TaskItem Add(string title)
+    public TaskItem Add(string title, string userId)
     {
-        var task = new TaskItem(0, title);
+        var task = new TaskItem(0, title, userId);
         _db.Tasks.Add(task);
         _db.SaveChanges();
         return task;
