@@ -135,3 +135,4 @@ C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-pr
 C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Jovia\Documents\Jobb\JobLoop\Backend\Undervisning\September2026\ToDo-prosjekt\TaskService.Api\bin\Debug\net10.0\BCrypt-Net-Next.dll
