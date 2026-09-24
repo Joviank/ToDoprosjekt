@@ -12,7 +12,7 @@ provider "hcloud" {
 }
 
 module "app_server" {
-  source = "./modules/app_server"
+  source = "./modules/app-server"
 
   server_name = "ToDooo"
   ssh_key_name = var.ssh_key_name
