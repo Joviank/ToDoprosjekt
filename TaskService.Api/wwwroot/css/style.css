@@ -1,16 +1,159 @@
+:root {
+  --background: oklch(97% 0.01 250);
+  --surface: oklch(100% 0 0);
+
+  --text: oklch(20% 0.02 250);
+  --text-muted: oklch(50% 0.02 250);
+
+  --border: oklch(85% 0.02 250);
+
+  --primary: oklch(60% 0.2 250);
+  --primary-hover: oklch(55% 0.2 250);
+
+  --success: oklch(90% 0.08 145);
+  --danger: oklch(92% 0.06 25);
+
+  --shadow: 0 2px 6px oklch(20% 0.02 250 / 0.08);
+}
+
+body.dark-mode {
+  --background: oklch(20% 0.02 250);
+  --surface: oklch(25% 0 250);
+
+  --text: oklch(95% 0.01 250);
+  --text-muted: oklch(70% 0.02 250);
+
+  --border: oklch(40% 0.02 250);
+
+  --primary: oklch(70% 0.18 250);
+  --primary-hover: oklch(75% 0.18 250);
+
+  --success: oklch(35% 0.08 145);
+  --danger: oklch(35% 0.06 25);
+
+  --shadow: 0 2px 6px oklch(0% 0 0 / 0.25);
+}
+
 body {
-  font-family: Arial;
-  margin: 40px;
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+
+  margin: 0;
+  padding: 40px;
 }
 
-input {
-  padding: 10px;
+.theme-button {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+  padding: 10px 16px;
+
+  font-size: 14px;
+  background: var(--surface);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  cursor: pointer;
 }
 
-button {
-  padding: 10px;
+.theme-button:hover {
+  background: var(--border);
 }
 
-li {
-  margin-top: 10px;
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.add-task {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 14px;
+  font-size: 16px;
+
+  border: 1px solider var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+
+  color: var(--text);
+}
+
+.add-button {
+  padding: 14px 22px;
+  font-size: 16px;
+
+  background: var(--primary);
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background: var(--primary-hover);
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+}
+
+#taskList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: var(--surface);
+  padding: 16px;
+  margin-bottom: 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+#taskList li span {
+  flex: 1;
+  font-size: 18px;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.complete-button,
+.delete-button {
+  padding: 8px 12px;
+
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.complete-button {
+  background: var(--success);
+  color: var(--text);
+}
+
+.delete-button {
+  background: var(--danger);
+  color: var(--text);
 }
