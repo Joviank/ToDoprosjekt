@@ -1,0 +1,23 @@
+1. Opprett en ssh-nøkkel:
+ssh-keygen -t ed25519 -C "ToDoList"
+
+2. Finn din Public key:
+cat ~/.ssh/id_ed25519.pub
+
+3. Opprett en server på hetzner
+
+4. Koble til denne server:
+ssh root@(ip går her)
+
+5. Manuelt oppdater systemet:
+apt update && apt upgrade -y
+
+6. installer git, docker og docker compose:
+apt install git -y
+apt install docker.io -y
+apt install docker-compose -y
+
+7. Vi sjekker om serveren er oppe å kjører:
+docker run -d -p 80:80 nginx
+
+http://(ip)

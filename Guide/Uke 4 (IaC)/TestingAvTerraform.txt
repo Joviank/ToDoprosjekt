@@ -1,0 +1,34 @@
+1. Installere Terraform:
+winget install HashiCorp.Terraform
+
+sjekk at det er installert: 
+terraform -v
+
+2.Lag en mappe for infrastruktur og opprett main.tf
+
+TaskServiceSolution
+│
+├── TaskService.infrastructure/
+│   └── main.tf
+│
+├── TaskService
+├── TaskService.Api
+├── TaskService.Tests
+└── docker-compose.yaml
+
+3. Legg til Provider, image, container og ports i main.tf
+
+Provider: Hvordan vi snakker med noe
+Image: Vi vil ha nginx tilgjengelig (Samme som å installere noe)
+Container: Det vi faktisk lager
+Port: Gjør det tilgjengelig på nettleser
+
+4. Kjør:
+terraform init
+
+5. Kjør:
+terraform plan
+
+6. terraform apply
+
+7. Test med nettleser
